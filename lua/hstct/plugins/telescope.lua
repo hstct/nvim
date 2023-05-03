@@ -22,6 +22,7 @@ return {
         vim.keymap.set("n", "<leader>fk", tb.keymaps)
         vim.keymap.set("n", "<leader>H", tb.help_tags)
         vim.keymap.set("n", "<leader>fw", function() uts.files_wiki() end)
+        vim.keymap.set("n", "<leader>ff", function() uts.text_wiki() end)
 
         local mark = require("harpoon.mark")
         local ui = require("harpoon.ui")

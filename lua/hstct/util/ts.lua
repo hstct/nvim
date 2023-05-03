@@ -35,4 +35,11 @@ function M.files_wiki()
     }
 end
 
+function M.text_wiki()
+    builtin.live_grep({
+        prompt_title = "Wiki text",
+        cwd = "~/.local/wiki",
+    })
+end
+
 return M
