@@ -34,9 +34,8 @@ return {
         vim.keymap.set("n", "'e", function() ui.nav_file(3) end)
         vim.keymap.set("n", "'r", function() ui.nav_file(4) end)
     end,
-    config = function(_, opts)
+    config = function()
         local t = require("telescope")
-        local tb = require("telescope.builtin")
         local actions = require("telescope.actions")
         local lactions = require("telescope.actions.layout")
         t.setup {
