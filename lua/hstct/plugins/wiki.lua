@@ -61,6 +61,7 @@ return {
         u.map("n", "<leader>zn", "<cmd>ZkNewNote<CR>")
         u.map("n", "<leader>zf", "<cmd>ZkLiveGrep<CR>")
         u.map("n", "<leader>zp", "<cmd>ZkNotes { sort = { 'modified' } }<CR>")
+        u.map("n", "<leader>fw", "<cmd>ZkNotes { sort = { 'modified' } }<CR>")
         u.map("n", "<leader>zo", "<cmd>ZkNotes { sort = { 'modified' }, match = vim.fn.input('Search: ') }<CR>")
         u.map("n", "<leader>zb", "<cmd>ZkBacklinks<CR>")
         u.map("n", "<leader>zl", "<cmd>ZkLinks<CR>")

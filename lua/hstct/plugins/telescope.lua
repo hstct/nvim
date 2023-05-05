@@ -9,7 +9,6 @@ return {
     },
     init = function()
         local tb = require("telescope.builtin")
-        local uts = require("hstct.util.ts")
         vim.keymap.set("n", "<C-p>", function()
             local ok = pcall(tb.git_files, { show_untracked = true })
             if not ok then
@@ -21,8 +20,6 @@ return {
         vim.keymap.set("n", "<leader>fg", tb.git_status)
         vim.keymap.set("n", "<leader>fk", tb.keymaps)
         vim.keymap.set("n", "<leader>H", tb.help_tags)
-        vim.keymap.set("n", "<leader>fw", function() uts.files_wiki() end)
-        vim.keymap.set("n", "<leader>ff", function() uts.text_wiki() end)
 
         local mark = require("harpoon.mark")
         local ui = require("harpoon.ui")
