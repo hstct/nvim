@@ -37,7 +37,7 @@ return {
                         gs.next_hunk()
                     end)
                     return "<Ignore>"
-                end, { expr = true })
+                end, { expr = true, desc = "git: next hunk" })
 
                 map("n", "[c", function()
                     if vim.wo.diff then
@@ -47,25 +47,25 @@ return {
                         gs.prev_hunk()
                     end)
                     return "<Ignore>"
-                end, { expr = true })
+                end, { expr = true, desc = "git: prev hunk" })
 
-                map({ "n", "v" }, "<leader>hs", gs.stage_hunk)
-                map({ "n", "v" }, "<leader>hr", gs.reset_hunk)
-                map("n", "<leader>hS", gs.stage_buffer)
-                map("n", "<leader>hu", gs.undo_stage_hunk)
-                map("n", "<leader>hR", gs.reset_buffer)
-                map("n", "<leader>hp", gs.preview_hunk)
+                map({ "n", "v" }, "<leader>hs", gs.stage_hunk, { desc = "git: stage hunk" })
+                map({ "n", "v" }, "<leader>hr", gs.reset_hunk, { desc = "git: reset hunk" })
+                map("n", "<leader>hS", gs.stage_buffer, { desc = "git: stage buffer" })
+                map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "git: undo stage hunk" })
+                map("n", "<leader>hR", gs.reset_buffer, { desc = "git: reset buffer" })
+                map("n", "<leader>hp", gs.preview_hunk, { desc = "git: preview hunk" })
                 map("n", "<leader>hb", function()
                     gs.blame_line({ full = true })
-                end)
-                map("n", "<leader>tb", gs.toggle_current_line_blame)
-                map("n", "<leader>hd", gs.diffthis)
+                end, { desc = "git: blame line" })
+                map("n", "<leader>tb", gs.toggle_current_line_blame, { desc = "git: toggle line blame" })
+                map("n", "<leader>hd", gs.diffthis, { desc = "git: diff file" })
                 map("n", "<leader>hD", function()
                     gs.diffthis("~")
-                end)
-                map("n", "<leader>td", gs.toggle_deleted)
+                end, { desc = "git: diff project" })
+                map("n", "<leader>td", gs.toggle_deleted, { desc = "git: toggle deleted" })
 
-                map({ "o", "x" }, "ih", ":<C-U>GitSigns select_hunk<CR>")
+                map({ "o", "x" }, "ih", ":<C-U>GitSigns select_hunk<CR>", { desc = "textobject: select hunk" })
             end,
         },
     },

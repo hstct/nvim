@@ -58,14 +58,14 @@ return {
         commands.add("ZkNewDailyNote", make_new_fn({ dir = "meetings/daily" }))
         commands.add("ZkDaily", make_edit_fn({ hrefs = { "meetings/daily" }, sort = { "created" } }, { title = "Zk Daily" }))
 
-        u.map("n", "<leader>zn", "<cmd>ZkNewNote<CR>")
-        u.map("n", "<leader>zf", "<cmd>ZkLiveGrep<CR>")
-        u.map("n", "<leader>zp", "<cmd>ZkNotes { sort = { 'modified' } }<CR>")
-        u.map("n", "<leader>fw", "<cmd>ZkNotes { sort = { 'modified' } }<CR>")
-        u.map("n", "<leader>zo", "<cmd>ZkNotes { sort = { 'modified' }, match = vim.fn.input('Search: ') }<CR>")
-        u.map("n", "<leader>zb", "<cmd>ZkBacklinks<CR>")
-        u.map("n", "<leader>zl", "<cmd>ZkLinks<CR>")
-        u.map("n", "<leader>zd", "<cmd>ZkNewDailyNote<CR>")
-        u.map("n", "<leader>zt", "<cmd>ZkTags<CR>")
+        u.map("n", "<leader>zn", "<cmd>ZkNewNote<CR>", { desc = "zk: new note" })
+        u.map("n", "<leader>zf", "<cmd>ZkLiveGrep<CR>", { desc = "zk: live grep " })
+        u.map("n", "<leader>zp", "<cmd>ZkNotes { sort = { 'modified' } }<CR>", { desc = "zk: find notes" })
+        u.map("n", "<leader>fw", "<cmd>ZkNotes { sort = { 'modified' } }<CR>", { desc = "zk: find notes" })
+        u.map("n", "<leader>zo", "<cmd>ZkNotes { sort = { 'modified' }, match = vim.fn.input('Search: ') }<CR>", { desc = "zk: find specific notes" })
+        u.map("n", "<leader>zb", "<cmd>ZkBacklinks<CR>", { desc = "zk: find backlinks" })
+        u.map("n", "<leader>zl", "<cmd>ZkLinks<CR>", { desc = "zk: find links" })
+        u.map("n", "<leader>zd", "<cmd>ZkNewDailyNote<CR>", { desc = "zk: new daily note" })
+        u.map("n", "<leader>zt", "<cmd>ZkTags<CR>", { desc = "zk: find tags" })
     end,
 }
