@@ -23,7 +23,7 @@ return {
         local function make_new_prompt_fn()
             return function()
                 vim.ui.input({ prompt = "Note Title: " }, function(title)
-                    zk.new({ title = title })
+                    zk.new({ title = title, dir = "records" })
                 end, "New Note")
             end
         end
@@ -55,17 +55,18 @@ return {
             end
         end)
         commands.add("ZkNewNote", make_new_prompt_fn())
-        commands.add("ZkNewDailyNote", make_new_fn({ dir = "meetings/daily" }))
-        commands.add("ZkDaily", make_edit_fn({ hrefs = { "meetings/daily" }, sort = { "created" } }, { title = "Zk Daily" }))
+        commands.add("ZkNewJournal", make_new_fn({ dir = "journal" }))
+        commands.add("ZkJournal", make_edit_fn({ hrefs = { "journal" }, sort = { "created" } }, { title = "Zk Journal" }))
 
         u.map("n", "<leader>zn", "<cmd>ZkNewNote<CR>", { desc = "zk: new note" })
         u.map("n", "<leader>zf", "<cmd>ZkLiveGrep<CR>", { desc = "zk: live grep " })
-        u.map("n", "<leader>zp", "<cmd>ZkNotes { sort = { 'modified' } }<CR>", { desc = "zk: find notes" })
-        u.map("n", "<leader>fw", "<cmd>ZkNotes { sort = { 'modified' } }<CR>", { desc = "zk: find notes" })
-        u.map("n", "<leader>zo", "<cmd>ZkNotes { sort = { 'modified' }, match = vim.fn.input('Search: ') }<CR>", { desc = "zk: find specific notes" })
+        u.map("n", "<leader>zp", "<cmd>ZkNotes { sort = { 'modified' }, tags = { 'wiki' } }<CR>", { desc = "zk: find notes" })
+        u.map("n", "<leader>fw", "<cmd>ZkNotes { sort = { 'modified' }, tags = { 'wiki' } }<CR>", { desc = "zk: find notes" })
+        u.map("n", "<leader>zo", "<cmd>ZkNotes { sort = { 'modified' }, match = vim.fn.input('Search: '), tags = { 'wiki' } }<CR>", { desc = "zk: find specific notes" })
+        u.map("n", "<leader>zj", "<cmd>ZkNotes { sort = { 'modified' }, tags = { 'journal' } }<CR>", { desc = "zk: find journal notes" })
         u.map("n", "<leader>zb", "<cmd>ZkBacklinks<CR>", { desc = "zk: find backlinks" })
         u.map("n", "<leader>zl", "<cmd>ZkLinks<CR>", { desc = "zk: find links" })
-        u.map("n", "<leader>zd", "<cmd>ZkNewDailyNote<CR>", { desc = "zk: new daily note" })
+        u.map("n", "<leader>zd", "<cmd>ZkNewJournal<CR>", { desc = "zk: new daily note" })
         u.map("n", "<leader>zt", "<cmd>ZkTags<CR>", { desc = "zk: find tags" })
     end,
 }
