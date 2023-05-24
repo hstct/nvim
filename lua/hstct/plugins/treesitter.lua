@@ -70,6 +70,7 @@ return {
             require("nvim-treesitter.configs").setup(opts)
             vim.o.foldmethod = "expr"
             vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+            vim.o.foldlevel = 10
         end,
         build = ":TSUpdate",
         event = "BufReadPost",
